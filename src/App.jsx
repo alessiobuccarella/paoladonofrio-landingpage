@@ -27,7 +27,7 @@ const App = () => {
   // Contenuti per le due modalità
   const content = {
     atelier: {
-      title: "L'Arte della Sartoria",
+      title: "L'Arte della Sorca",
       subtitle: "Atelier",
       description: "Immerso in una prestigiosa cornice di specchi dorati e mobili d'epoca, l'Atelier di Paola D'Onofrio ti accoglierà con personale altamente qualificato per vedere esauditi i tuoi sogni.",
       image: "/atelier.png",
