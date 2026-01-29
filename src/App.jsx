@@ -33,11 +33,14 @@ const App = () => {
       subtitle: "Atelier",
       description: "Immerso in una prestigiosa cornice di specchi dorati e mobili d'epoca, l'Atelier di Paola D'Onofrio ti accoglierà con personale altamente qualificato per vedere esauditi i tuoi sogni.",
       image: "/atelier.png",
+      imageMobile: "/atelier-mobile.png",
+      imagePosition: "object-top",
       bgColor: "bg-white",
       textColor: "text-brand-blue",
       accentColor: "text-brand-blue-light",
       buttonBg: "bg-brand-blue",
       buttonText: "text-white",
+      buttonBorder: "border-2 border-brand-blue",
       borderColor: "border-brand-blue/20",
       // Header con colore opposto
       headerBg: "bg-brand-blue",
@@ -52,12 +55,15 @@ const App = () => {
       title: "Il Lusso Accessibile",
       subtitle: "Luxury Outlet",
       description: "Una selezione di pezzi unici da sposa e da cerimonia a prezzi esclusivi per realizzare i sogni di ognuna di voi. Brand prestigiosi, occasioni uniche: l'eleganza senza compromessi.",
-      image: "/luxury-outlet.png",
+      image: "/luxury_outlet.png",
+      imageMobile: "/luxury_outlet-mobile.png",
+      imagePosition: "object-top",
       bgColor: "bg-brand-blue",
       textColor: "text-white",
       accentColor: "text-white/70",
       buttonBg: "bg-white",
       buttonText: "text-brand-blue",
+      buttonBorder: "border-2 border-white",
       borderColor: "border-white/20",
       // Header con colore opposto
       headerBg: "bg-white",
@@ -130,7 +136,7 @@ const App = () => {
 
               {/* Text Content */}
               <div
-                className={`order-2 ${current.textOrder} ${current.textAlign} flex flex-col content-transition ${
+                className={`order-2 ${current.textOrder} flex flex-col items-center text-center ${current.textAlign} content-transition ${
                   isLoaded ? 'animate-fade-in-up animate-delay-200' : 'opacity-0'
                 } ${isAnimating ? 'content-hidden' : ''}`}
               >
@@ -171,11 +177,11 @@ const App = () => {
                     onClick={handleSwitch}
                     disabled={isAnimating}
                     className={`toggle-switch flex items-center gap-3 px-5 py-3 md:px-6 md:py-4 rounded-full border-2 ${current.borderColor} ${current.textColor} hover:scale-105 active:scale-95 transition-transform duration-300 font-sans text-sm md:text-base font-medium`}
-                    aria-label={`Passa a ${isAtelier ? 'Luxury Outlet' : 'Atelier'}`}
+                    aria-label={`Passa a ${isAtelier ? 'Outlet' : 'Atelier'}`}
                   >
                     <ArrowLeftRight size={18} className="md:w-5 md:h-5" />
                     <span>
-                      Scopri {isAtelier ? 'Luxury Outlet' : 'Atelier'}
+                      Scopri {isAtelier ? 'Outlet' : 'Atelier'}
                     </span>
                   </button>
                 </div>
@@ -185,7 +191,7 @@ const App = () => {
                   href="https://paoladonofrio.it"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`inline-flex items-center gap-2 md:gap-3 ${current.buttonBg} ${current.buttonText} px-6 py-3 md:px-8 md:py-4 rounded-full font-sans text-sm md:text-base font-semibold hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 content-transition ${
+                  className={`inline-flex items-center gap-2 md:gap-3 ${current.buttonBg} ${current.buttonText} ${current.buttonBorder} px-6 py-3 md:px-8 md:py-4 rounded-full font-sans text-sm md:text-base font-semibold hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 content-transition ${
                     isAnimating ? 'content-hidden' : ''
                   }`}
                 >
@@ -205,11 +211,19 @@ const App = () => {
                     isAnimating ? 'content-hidden' : ''
                   }`}
                 >
-                  <img
-                    src={current.image}
-                    alt={isAtelier ? "Atelier Paola D'Onofrio" : "Luxury Outlet"}
-                    className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] object-cover transition-transform duration-1000"
-                  />
+                  <picture>
+                    {/* Desktop: immagine standard */}
+                    <source
+                      media="(min-width: 768px)"
+                      srcSet={current.image}
+                    />
+                    {/* Mobile: immagine ottimizzata */}
+                    <img
+                      src={current.imageMobile}
+                      alt={isAtelier ? "Atelier Paola D'Onofrio" : "Outlet"}
+                      className={`w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] object-cover ${current.imagePosition} transition-transform duration-1000`}
+                    />
+                  </picture>
                 </div>
               </div>
             </div>
