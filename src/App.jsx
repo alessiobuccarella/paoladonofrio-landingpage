@@ -233,18 +233,18 @@ const App = () => {
 
         {/* Footer con social e info */}
         <footer
-          className={`w-full py-4 md:py-5 px-4 md:px-8 ${
+          className={`w-full py-4 md:py-5 px-4 md:px-8 ${current.headerBg} transition-colors duration-1000 ${
             isLoaded ? 'animate-fade-in-up animate-delay-500' : 'opacity-0'
           }`}
         >
           <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
             {/* Copyright */}
-            <p className={`order-3 sm:order-1 font-sans text-xs ${current.accentColor} transition-colors duration-1000`}>
+            <p className={`order-3 sm:order-1 font-sans text-xs ${current.headerText} opacity-70 transition-colors duration-1000`}>
               © {new Date().getFullYear()} Paola D'Onofrio
             </p>
 
             {/* Location */}
-            <p className={`order-2 sm:order-2 font-sans text-xs ${current.accentColor} transition-colors duration-1000`}>
+            <p className={`order-2 sm:order-2 font-sans text-xs ${current.headerText} opacity-70 transition-colors duration-1000`}>
               Roma — Viale Trastevere 248
             </p>
 
@@ -254,7 +254,7 @@ const App = () => {
                 href="https://www.facebook.com/paoladonofrioatelier"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${current.accentColor} hover:opacity-70 transition-all duration-300`}
+                className={`${current.headerText} opacity-70 hover:opacity-100 transition-all duration-300`}
                 aria-label="Facebook"
               >
                 <Facebook size={18} />
@@ -263,14 +263,14 @@ const App = () => {
                 href="https://www.instagram.com/paoladonofrioatelier"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${current.accentColor} hover:opacity-70 transition-all duration-300`}
+                className={`${current.headerText} opacity-70 hover:opacity-100 transition-all duration-300`}
                 aria-label="Instagram"
               >
                 <Instagram size={18} />
               </a>
               <a
                 href="mailto:help@paoladonofrio.it"
-                className={`${current.accentColor} hover:opacity-70 transition-all duration-300`}
+                className={`${current.headerText} opacity-70 hover:opacity-100 transition-all duration-300`}
                 aria-label="Email"
               >
                 <Mail size={18} />
