@@ -243,9 +243,9 @@ const App = () => {
               © {new Date().getFullYear()} Paola D'Onofrio
             </p>
 
-            {/* Location */}
-            <p className={`order-2 sm:order-2 font-sans text-xs ${current.headerText} opacity-70 transition-colors duration-1000`}>
-              Roma — Viale Trastevere 248
+            {/* Business Info */}
+            <p className={`order-2 sm:order-2 font-sans text-xs ${current.headerText} opacity-70 transition-colors duration-1000 text-center`}>
+              MARY S.R.L. – Viale Trastevere, 248 – 00153 Roma
             </p>
 
             {/* Social Links */}
