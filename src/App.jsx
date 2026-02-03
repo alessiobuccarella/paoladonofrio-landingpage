@@ -29,7 +29,9 @@ const App = () => {
     atelier: {
       title: "Atelier Paola D'Onofrio",
       subtitle: "Abiti da sposa e di alta moda su misura, con sartoria interna.",
-      description: "Nel nostro atelier realizziamo abiti su misura: dal bozzetto alle prove, fino alla consegna. Prenota un appuntamento privato e raccontaci la tua idea: la trasformiamo in un abito unico.",
+      extraInfo: "Nel nostro atelier realizziamo abiti su misura: dal bozzetto alle prove, fino alla consegna. Un percorso su misura seguito internamente, con costi chiari e attenzione artigianale.",
+      description: "Prenota un appuntamento privato e raccontaci la tua idea: la trasformiamo in un abito unico.",
+      ctaText: "Prenota subito una consulenza",
       badges: ["Dal 1982", "Sartoria interna", "Appuntamenti privati"],
       whatsapp: "393403680023",
       image: "/atelier.png",
@@ -55,8 +57,10 @@ const App = () => {
     },
     outlet: {
       title: "Luxury Outlet",
-      subtitle: "Abiti da sposa in pronta consegna a prezzi esclusivi.",
+      subtitle: "Abiti da sposa da €990 e abiti da cerimonia da €250.",
+      extraInfo: "Pochissimi pezzi per modello. Disponibilità limitata. Gli abiti vengono riportati alla misura del cliente e seguiti internamente fino alla consegna.",
       description: "Una selezione di abiti da sposa e cerimonia: pezzi unici, disponibilità immediata e condizioni riservate. Prenota la prova in showroom e trova il tuo abito senza compromessi.",
+      ctaText: "Prenota subito un appuntamento",
       badges: ["Dal 1982", "Pezzi unici", "Prezzi riservati"],
       whatsapp: "393426285267",
       image: "/luxury_outlet.png",
@@ -151,6 +155,17 @@ const App = () => {
                   {current.subtitle}
                 </p>
 
+                {/* Extra Info (solo per outlet) */}
+                {current.extraInfo && (
+                  <p
+                    className={`font-sans text-sm md:text-base leading-relaxed mb-3 md:mb-4 max-w-lg ${current.accentColor} font-semibold content-transition ${
+                      isAnimating ? 'content-hidden' : ''
+                    }`}
+                  >
+                    {current.extraInfo}
+                  </p>
+                )}
+
                 {/* Description */}
                 <p
                   className={`font-sans text-sm md:text-base leading-relaxed mb-4 md:mb-5 max-w-lg ${current.accentColor} content-transition ${
@@ -186,7 +201,7 @@ const App = () => {
                   }`}
                 >
                   <MessageCircle size={18} className="md:w-5 md:h-5" />
-                  Prenota Appuntamento
+                  {current.ctaText}
                 </a>
 
                 {/* Link secondario - Sito completo */}
